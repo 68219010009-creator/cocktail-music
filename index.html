@@ -14,37 +14,33 @@
 }
 
 body {
+    font-family: Arial, sans-serif;
     background: #101010;
     color: white;
-    font-family: Arial, sans-serif;
 }
 
 header {
     text-align: center;
-    padding: 75px 20px;
-    background: linear-gradient(135deg,#171717,#49351e,#111);
+    padding: 55px 20px;
+    background: linear-gradient(135deg, #000000, #34250d);
+    border-bottom: 2px solid #c9a227;
 }
 
 header h1 {
-    font-size: 48px;
-    color: #e7b45d;
+    color: #e4bd55;
+    font-size: 42px;
     letter-spacing: 5px;
+    margin-bottom: 12px;
 }
 
 header p {
-    margin-top: 15px;
     color: #ccc;
 }
 
 .container {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
-    padding: 40px 20px;
-}
-
-h2 {
-    color: #e7b45d;
-    margin-bottom: 25px;
+    padding: 35px 20px;
 }
 
 .filters {
@@ -52,96 +48,96 @@ h2 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
-.filter-btn {
-    padding: 12px 25px;
+.filters button {
     background: transparent;
-    color: white;
-    border: 1px solid #d6a44e;
-    border-radius: 30px;
+    border: 1px solid #c9a227;
+    color: #e4bd55;
+    padding: 11px 23px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-    background: #d6a44e;
-    color: black;
-    transform: translateY(-3px);
+.filters button:hover,
+.filters button.active {
+    background: #c9a227;
+    color: #111;
 }
 
-.music-grid {
+.music-list {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
-.card {
-    background: #202020;
+.music-card {
+    background: #1c1c1c;
+    padding: 18px;
+    border: 1px solid #393026;
     border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid #333;
-    transition: .3s;
+    transition: 0.3s;
 }
 
-.card:hover {
+.music-card:hover {
     transform: translateY(-8px);
-    border-color: #e7b45d;
-    box-shadow: 0 10px 25px #000;
+    border-color: #e4bd55;
+    box-shadow: 0 8px 25px #c9a22733;
 }
 
-.card iframe {
+.music-card h2 {
+    color: #e4bd55;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.music-card iframe {
     width: 100%;
-    height: 352px;
     border: none;
+    border-radius: 12px;
+}
+
+.spotify-link {
     display: block;
+    text-align: center;
+    margin-top: 14px;
+    padding: 11px;
+    background: #1ed760;
+    color: #111;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.info {
-    padding: 15px;
-}
-
-.info h3 {
-    color: #e7b45d;
-    margin-bottom: 8px;
-}
-
-.info p {
-    color: #aaa;
-    font-size: 14px;
+.spotify-link:hover {
+    background: #19b950;
+    transform: scale(1.03);
 }
 
 footer {
     text-align: center;
-    background: #080808;
-    padding: 30px;
-    color: #aaa;
+    padding: 25px;
     margin-top: 40px;
+    color: #888;
+    border-top: 1px solid #333;
 }
 
-footer span {
-    color: #e7b45d;
-}
-
-@media(max-width:850px) {
-    .music-grid {
-        grid-template-columns: repeat(2,1fr);
+@media (max-width: 850px) {
+    .music-list {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media(max-width:550px) {
-    .music-grid {
-        grid-template-columns: 1fr;
-    }
-
+@media (max-width: 550px) {
     header h1 {
-        font-size: 32px;
+        font-size: 29px;
     }
 
-    .container {
-        padding: 25px 15px;
+    .music-list {
+        grid-template-columns: 1fr;
     }
 }
 </style>
@@ -151,102 +147,112 @@ footer span {
 
 <header>
     <h1>COCKTAIL MUSIC</h1>
-    <p>รวมเพลงเพราะ ๆ จากวง COCKTAIL ฟังเพลงโปรดของคุณได้ที่นี่</p>
+    <p>รวมเพลงเพราะ ๆ จากวง COCKTAIL</p>
 </header>
 
 <main class="container">
 
-    <h2>🎵 หมวดหมู่เพลง</h2>
-
     <div class="filters">
-        <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
-        <button class="filter-btn" data-filter="love">เพลงรัก</button>
-        <button class="filter-btn" data-filter="sad">เพลงเศร้า</button>
-        <button class="filter-btn" data-filter="hit">เพลงฮิต</button>
+        <button class="active" data-filter="all">ทั้งหมด</button>
+        <button data-filter="love">เพลงรัก</button>
+        <button data-filter="sad">เพลงเศร้า</button>
+        <button data-filter="hit">เพลงยอดนิยม</button>
     </div>
 
-    <h2>🎧 เพลงแนะนำจาก COCKTAIL</h2>
+    <div class="music-list">
 
-    <div class="music-grid">
-
-        <div class="card" data-category="sad hit">
-            <iframe src="https://open.spotify.com/embed/track/3sKlbOuJnyz5g019B8jTk8?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="info">
-                <h3>ช่างมัน</h3>
-                <p>COCKTAIL • เพลงฮิต</p>
-            </div>
+        <!-- เพลงที่ 1 -->
+        <div class="music-card" data-category="sad">
+            <h2>ช่างมัน</h2>
+            <iframe src="https://open.spotify.com/embed/track/4ur2wxxiKJk7rLj4YYy7ej"
+                height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <a class="spotify-link" href="https://open.spotify.com/track/4ur2wxxiKJk7rLj4YYy7ej" target="_blank">
+                ฟังบน Spotify
+            </a>
         </div>
 
-        <div class="card" data-category="love hit">
-            <iframe src="https://open.spotify.com/embed/track/6L6MkqgAgCdlEMAXUE9j3V?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="info">
-                <h3>คู่ชีวิต</h3>
-                <p>COCKTAIL • เพลงรัก</p>
-            </div>
+        <!-- เพลงที่ 2 -->
+        <div class="music-card" data-category="love">
+            <h2>คู่ชีวิต</h2>
+            <iframe src="https://open.spotify.com/embed/track/6L6MkqgAgCdlEMAXUE9j3V"
+                height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <a class="spotify-link" href="https://open.spotify.com/track/6L6MkqgAgCdlEMAXUE9j3V" target="_blank">
+                ฟังบน Spotify
+            </a>
         </div>
 
-        <div class="card" data-category="love hit">
-            <iframe src="https://open.spotify.com/embed/track/5w2TigAJOnmKa2o4jkC4hC?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="info">
-                <h3>เธอ</h3>
-                <p>COCKTAIL • เพลงรัก</p>
-            </div>
+        <!-- เพลงที่ 3 -->
+        <div class="music-card" data-category="love">
+            <h2>เธอ</h2>
+            <iframe src="https://open.spotify.com/embed/track/3HlTt5df6OrvtwTvO6iFla"
+                height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <a class="spotify-link" href="https://open.spotify.com/track/3HlTt5df6OrvtwTvO6iFla" target="_blank">
+                ฟังบน Spotify
+            </a>
         </div>
 
-        <div class="card" data-category="sad">
-            <iframe src="https://open.spotify.com/embed/track/4fneLTeSAdRcYiUi95Tw6P?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="info">
-                <h3>โปรดเถิดรัก</h3>
-                <p>COCKTAIL • เพลงเศร้า</p>
-            </div>
+        <!-- เพลงที่ 4 -->
+        <div class="music-card" data-category="love">
+            <h2>โปรดเถิดรัก</h2>
+            <iframe src="https://open.spotify.com/embed/track/4fneLTeSAdRcYiUi95Tw6P"
+                height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <a class="spotify-link" href="https://open.spotify.com/track/4fneLTeSAdRcYiUi95Tw6P" target="_blank">
+                ฟังบน Spotify
+            </a>
         </div>
 
-        <div class="card" data-category="sad hit">
-            <iframe src="https://open.spotify.com/embed/track/7JaPPOOC2r2yeJ0GdykPeE?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="info">
-                <h3>ดึงดัน</h3>
-                <p>COCKTAIL • เพลงฮิต</p>
-            </div>
+        <!-- เพลงที่ 5 -->
+        <div class="music-card" data-category="hit">
+            <h2>ดึงดัน</h2>
+            <iframe src="https://open.spotify.com/embed/track/7JaPPOOC2r2yeJ0GdykPeE"
+                height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <a class="spotify-link" href="https://open.spotify.com/track/7JaPPOOC2r2yeJ0GdykPeE" target="_blank">
+                ฟังบน Spotify
+            </a>
         </div>
 
-        <div class="card" data-category="love hit">
-            <iframe src="https://open.spotify.com/embed/track/3qhgEYTTHJrlkXAYn6xzJU?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="info">
-                <h3>งานเต้นรำในคืนพระจันทร์เต็มดวง</h3>
-                <p>COCKTAIL • เพลงฮิต</p>
-            </div>
+        <!-- เพลงที่ 6 -->
+        <div class="music-card" data-category="hit">
+            <h2>งานเต้นรำในคืนพระจันทร์เต็มดวง</h2>
+            <iframe src="https://open.spotify.com/embed/track/7o9Rys39g1EaRhXtM5BsQa"
+                height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            <a class="spotify-link" href="https://open.spotify.com/track/7o9Rys39g1EaRhXtM5BsQa" target="_blank">
+                ฟังบน Spotify
+            </a>
         </div>
 
     </div>
 </main>
 
 <footer>
-    <p>© 2026 <span>COCKTAIL MUSIC</span></p>
-    <p>เว็บไซต์แนะนำเพลง COCKTAIL จัดทำเพื่อการศึกษา</p>
+    <p>© 2026 COCKTAIL MUSIC | Music Website Project</p>
 </footer>
 
 <script>
-const buttons = document.querySelectorAll(".filter-btn");
-const cards = document.querySelectorAll(".card");
+const filterButtons = document.querySelectorAll(".filters button");
+const musicCards = document.querySelectorAll(".music-card");
 
-buttons.forEach(button => {
+filterButtons.forEach(button => {
     button.addEventListener("click", () => {
 
-        buttons.forEach(btn => btn.classList.remove("active"));
+        filterButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
 
         const filter = button.dataset.filter;
 
-        cards.forEach(card => {
-            const category = card.dataset.category.split(" ");
-
-            if (filter === "all" || category.includes(filter)) {
+        musicCards.forEach(card => {
+            if (filter === "all" || card.dataset.category === filter) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
             }
         });
-
     });
 });
 </script>
