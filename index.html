@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COCKTAIL MUSIC | โลกแห่งเสียงเพลง</title>
+<title>COCKTAIL MUSIC</title>
 
 <style>
 * {
@@ -14,49 +14,39 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     background: #101010;
     color: white;
+    font-family: Arial, sans-serif;
 }
 
-/* HEADER */
 header {
-    min-height: 330px;
-    padding: 80px 20px;
     text-align: center;
-    background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
-    url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600")
-    center/cover;
+    padding: 75px 20px;
+    background: linear-gradient(135deg,#171717,#49351e,#111);
 }
 
 header h1 {
-    font-size: clamp(38px, 7vw, 65px);
+    font-size: 48px;
+    color: #e7b45d;
     letter-spacing: 5px;
-    color: #ffca70;
-    margin-bottom: 15px;
 }
 
 header p {
-    color: #ddd;
-    font-size: 17px;
+    margin-top: 15px;
+    color: #ccc;
 }
 
-/* MAIN */
 .container {
-    max-width: 1200px;
+    max-width: 1150px;
     margin: auto;
-    padding: 45px 20px;
+    padding: 40px 20px;
 }
 
-.section-title {
-    font-size: 28px;
+h2 {
+    color: #e7b45d;
     margin-bottom: 25px;
-    border-left: 5px solid #e6a84c;
-    padding-left: 15px;
 }
 
-/* FILTER BUTTONS */
 .filters {
     display: flex;
     justify-content: center;
@@ -67,116 +57,91 @@ header p {
 
 .filter-btn {
     padding: 12px 25px;
-    border: 1px solid #d9a34f;
-    border-radius: 30px;
     background: transparent;
     color: white;
+    border: 1px solid #d6a44e;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 15px;
     transition: .3s;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: #d9a34f;
+    background: #d6a44e;
     color: black;
     transform: translateY(-3px);
 }
 
-/* MUSIC CARDS */
 .music-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 25px;
 }
 
 .card {
-    background: #1c1c1c;
+    background: #202020;
     border-radius: 15px;
     overflow: hidden;
-    transition: .35s;
     border: 1px solid #333;
+    transition: .3s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: #e6a84c;
-    box-shadow: 0 12px 30px rgba(230,168,76,.2);
+    transform: translateY(-8px);
+    border-color: #e7b45d;
+    box-shadow: 0 10px 25px #000;
 }
 
-.card img {
+.card iframe {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
+    height: 352px;
+    border: none;
     display: block;
-    transition: .4s;
 }
 
-.card:hover img {
-    transform: scale(1.06);
+.info {
+    padding: 15px;
 }
 
-.image-box {
-    overflow: hidden;
+.info h3 {
+    color: #e7b45d;
+    margin-bottom: 8px;
 }
 
-.card-info {
-    padding: 20px;
-}
-
-.card-info h3 {
-    color: #ffca70;
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.card-info p {
-    color: #bbb;
+.info p {
+    color: #aaa;
     font-size: 14px;
-    line-height: 1.7;
 }
 
-.category {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 6px 13px;
-    border-radius: 20px;
-    background: #49351e;
-    color: #ffca70;
-    font-size: 12px;
-}
-
-/* FOOTER */
 footer {
     text-align: center;
-    padding: 30px 15px;
     background: #080808;
-    color: #999;
+    padding: 30px;
+    color: #aaa;
     margin-top: 40px;
 }
 
 footer span {
-    color: #e6a84c;
+    color: #e7b45d;
 }
 
-/* RESPONSIVE */
-@media (max-width: 850px) {
+@media(max-width:850px) {
     .music-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 }
 
-@media (max-width: 550px) {
+@media(max-width:550px) {
     .music-grid {
         grid-template-columns: 1fr;
     }
 
-    header {
-        padding: 65px 15px;
+    header h1 {
+        font-size: 32px;
     }
 
     .container {
-        padding: 30px 15px;
+        padding: 25px 15px;
     }
 }
 </style>
@@ -186,87 +151,69 @@ footer span {
 
 <header>
     <h1>COCKTAIL MUSIC</h1>
-    <p>โลกแห่งเสียงเพลง ความทรงจำ และความรู้สึกผ่านบทเพลง</p>
+    <p>รวมเพลงเพราะ ๆ จากวง COCKTAIL ฟังเพลงโปรดของคุณได้ที่นี่</p>
 </header>
 
 <main class="container">
 
-    <h2 class="section-title">เลือกหมวดหมู่เพลง</h2>
+    <h2>🎵 หมวดหมู่เพลง</h2>
 
     <div class="filters">
-        <button class="filter-btn active" data-filter="all">เพลงทั้งหมด</button>
+        <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
         <button class="filter-btn" data-filter="love">เพลงรัก</button>
         <button class="filter-btn" data-filter="sad">เพลงเศร้า</button>
-        <button class="filter-btn" data-filter="popular">เพลงยอดนิยม</button>
+        <button class="filter-btn" data-filter="hit">เพลงฮิต</button>
     </div>
 
-    <h2 class="section-title">แนะนำเพลง COCKTAIL</h2>
+    <h2>🎧 เพลงแนะนำจาก COCKTAIL</h2>
 
-    <div class="music-grid" id="musicGrid">
+    <div class="music-grid">
 
-        <div class="card" data-category="sad popular">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=700" alt="เพลงคุกเข่า">
-            </div>
-            <div class="card-info">
-                <h3>คุกเข่า</h3>
-                <p>บทเพลงที่เต็มไปด้วยความรู้สึกและการขอร้องให้ใครสักคนกลับมา</p>
-                <span class="category">เพลงเศร้า</span>
+        <div class="card" data-category="sad hit">
+            <iframe src="https://open.spotify.com/embed/track/3sKlbOuJnyz5g019B8jTk8?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="info">
+                <h3>ช่างมัน</h3>
+                <p>COCKTAIL • เพลงฮิต</p>
             </div>
         </div>
 
-        <div class="card" data-category="love popular">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=700" alt="เพลงคู่ชีวิต">
-            </div>
-            <div class="card-info">
+        <div class="card" data-category="love hit">
+            <iframe src="https://open.spotify.com/embed/track/6L6MkqgAgCdlEMAXUE9j3V?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="info">
                 <h3>คู่ชีวิต</h3>
-                <p>เพลงรักที่สื่อถึงการเดินทางและการใช้ชีวิตร่วมกัน</p>
-                <span class="category">เพลงรัก</span>
+                <p>COCKTAIL • เพลงรัก</p>
             </div>
         </div>
 
-        <div class="card" data-category="love">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=700" alt="เพลงเธอ">
-            </div>
-            <div class="card-info">
+        <div class="card" data-category="love hit">
+            <iframe src="https://open.spotify.com/embed/track/5w2TigAJOnmKa2o4jkC4hC?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="info">
                 <h3>เธอ</h3>
-                <p>บทเพลงที่ถ่ายทอดความรักและความรู้สึกดี ๆ ที่มีให้กัน</p>
-                <span class="category">เพลงรัก</span>
-            </div>
-        </div>
-
-        <div class="card" data-category="sad popular">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=700" alt="เพลงโปรดเถิดรัก">
-            </div>
-            <div class="card-info">
-                <h3>โปรดเถิดรัก</h3>
-                <p>เพลงที่สะท้อนความรัก ความหวัง และความเจ็บปวด</p>
-                <span class="category">เพลงเศร้า</span>
-            </div>
-        </div>
-
-        <div class="card" data-category="love popular">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700" alt="เพลงงานเต้นรำ">
-            </div>
-            <div class="card-info">
-                <h3>งานเต้นรำในคืนพระจันทร์เต็มดวง</h3>
-                <p>เพลงที่เล่าเรื่องราวของความรักและช่วงเวลาที่น่าจดจำ</p>
-                <span class="category">เพลงยอดนิยม</span>
+                <p>COCKTAIL • เพลงรัก</p>
             </div>
         </div>
 
         <div class="card" data-category="sad">
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=700" alt="เพลงดึงดัน">
+            <iframe src="https://open.spotify.com/embed/track/4fneLTeSAdRcYiUi95Tw6P?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="info">
+                <h3>โปรดเถิดรัก</h3>
+                <p>COCKTAIL • เพลงเศร้า</p>
             </div>
-            <div class="card-info">
+        </div>
+
+        <div class="card" data-category="sad hit">
+            <iframe src="https://open.spotify.com/embed/track/7JaPPOOC2r2yeJ0GdykPeE?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="info">
                 <h3>ดึงดัน</h3>
-                <p>เพลงที่ถ่ายทอดความรู้สึกของความสัมพันธ์ที่ยากจะลืม</p>
-                <span class="category">เพลงเศร้า</span>
+                <p>COCKTAIL • เพลงฮิต</p>
+            </div>
+        </div>
+
+        <div class="card" data-category="love hit">
+            <iframe src="https://open.spotify.com/embed/track/3qhgEYTTHJrlkXAYn6xzJU?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="info">
+                <h3>งานเต้นรำในคืนพระจันทร์เต็มดวง</h3>
+                <p>COCKTAIL • เพลงฮิต</p>
             </div>
         </div>
 
@@ -274,33 +221,26 @@ footer span {
 </main>
 
 <footer>
-    <p>© 2026 <span>COCKTAIL MUSIC</span> | เว็บไซต์แนะนำเพลง</p>
-    <p>จัดทำเพื่อการศึกษา</p>
+    <p>© 2026 <span>COCKTAIL MUSIC</span></p>
+    <p>เว็บไซต์แนะนำเพลง COCKTAIL จัดทำเพื่อการศึกษา</p>
 </footer>
 
 <script>
-// เลือกปุ่มหมวดหมู่ทั้งหมด
 const buttons = document.querySelectorAll(".filter-btn");
-
-// เลือกการ์ดเพลงทั้งหมด
 const cards = document.querySelectorAll(".card");
 
-// สร้างระบบกรองเพลง
 buttons.forEach(button => {
     button.addEventListener("click", () => {
 
-        // เปลี่ยนปุ่มที่เลือก
         buttons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
 
-        // อ่านหมวดหมู่ที่เลือก
         const filter = button.dataset.filter;
 
-        // แสดงหรือซ่อนการ์ด
         cards.forEach(card => {
-            const categories = card.dataset.category.split(" ");
+            const category = card.dataset.category.split(" ");
 
-            if (filter === "all" || categories.includes(filter)) {
+            if (filter === "all" || category.includes(filter)) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
@@ -313,3 +253,4 @@ buttons.forEach(button => {
 
 </body>
 </html>
+
